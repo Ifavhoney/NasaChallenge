@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mybackpack/backpack.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -24,12 +25,77 @@ class _LoginState extends State<Login> {
         ),
         backgroundColor: Colors.grey.shade300,
         body: Container(
+          alignment: Alignment.center,
           child: Form(
             key: _formKey,
             child: Column(
-              children: <Widget>[Text("hello")],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+
+                  //lvl 2 - accept characters that end with the given email e.g @uoguelph
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return "Invalid Field";
+                    } else {
+                      //DO X Y Z
+                      setState(() {
+                        return astronaut.email = value;
+                      });
+                    }
+                    return null;
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 20, 50, 0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    obscureText: true,
+                    //lvl 2 - accept characters that end with the given email e.g @uoguelph
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return "Invalid Field";
+                      } else {
+                        //DO X Y Z
+                        setState(() {
+                          return astronaut.password = value;
+                        });
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                RaisedButton(
+                  child: Text("Submit"),
+                  onPressed: () {
+                    redirect();
+                  },
+                )
+              ],
             ),
           ),
         ));
+  }
+
+//See this in API building or Data analysis
+//
+  Future redirect() {
+    MaterialPageRoute route =
+        MaterialPageRoute(builder: (BuildContext context) {
+      return BackPack();
+    });
+
+    return Navigator.of(context).push(route);
   }
 }
