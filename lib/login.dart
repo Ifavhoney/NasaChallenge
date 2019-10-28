@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mybackpack/backpack.dart';
+import 'package:mybackpack/last.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -98,7 +98,7 @@ class _LoginState extends State<Login> {
   Future redirect() {
     MaterialPageRoute route =
         MaterialPageRoute(builder: (BuildContext context) {
-      return BackPack();
+      return Last();
     });
 
     return Navigator.of(context).push(route);
