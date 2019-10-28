@@ -36,7 +36,10 @@ class _BackPackState extends State<BackPack> {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int i) {
           return CheckboxListTile(
-            title: Text(items[i]),
+            title: Text(
+              items[i],
+              style: TextStyle(color: Colors.brown.shade500),
+            ),
             //wether checked or not
             value: selectedItems.contains(items[i]),
             onChanged: (bool isSelected) {

@@ -32,6 +32,7 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 TextFormField(
+                  style: TextStyle(color: Colors.brown.shade500),
                   decoration: InputDecoration(
                     labelText: "Email",
                     border: OutlineInputBorder(
@@ -55,6 +56,8 @@ class _LoginState extends State<Login> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(50, 20, 50, 0),
                   child: TextFormField(
+                    style: TextStyle(color: Colors.brown.shade500),
+
                     decoration: InputDecoration(
                       labelText: "Password",
                       border: OutlineInputBorder(
