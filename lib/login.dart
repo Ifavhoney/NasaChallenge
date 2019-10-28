@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
 
                   //lvl 2 - accept characters that end with the given email e.g @uoguelph
                   validator: (String value) {
-                    if (value.isEmpty) {
+                    if (value.isEmpty || !value.endsWith("@nasa.com ")) {
                       return "Invalid Field";
                     } else {
                       //DO X Y Z
@@ -79,7 +79,9 @@ class _LoginState extends State<Login> {
                 RaisedButton(
                   child: Text("Submit"),
                   onPressed: () {
-                    redirect();
+                    if (_formKey.currentState.validate() == true) {
+                      redirect();
+                    }
                   },
                 )
               ],
