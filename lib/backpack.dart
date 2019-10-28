@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:mybackpack/last.dart';
 //BackPack is a screen where the user selects everything &
 //once all is selected He may proceed
 
@@ -27,12 +27,11 @@ class _BackPackState extends State<BackPack> {
 
   @override
   Widget build(BuildContext context) {
-    Icon icon = Icon(Icons.check_circle_outline);
-
     return Scaffold(
       appBar: AppBar(
         title: Text("MyBackPack"),
       ),
+      backgroundColor: Colors.cyan.shade100,
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (BuildContext context, int i) {
@@ -48,7 +47,7 @@ class _BackPackState extends State<BackPack> {
                 if (!selectedItems.contains(items[i])) {
                   selectedItems.add(items[i]);
                 } else {
-                  //it already exists and therefore is doubled clicked
+                  //it already exists and teherefore is doubled clicked
                   selectedItems.remove(items[i]);
                 }
               });
@@ -103,10 +102,22 @@ class _BackPackState extends State<BackPack> {
         child: Icon(Icons.thumb_up),
         onPressed: () {
           if (selectedItems.length == items.length) {
-            print("We can go to the next page!");
+            redirect();
+            print("Lift Off!");
+          } else {
+            print("Nope!");
           }
         },
       ),
     );
+  }
+
+  Future redirect() {
+    MaterialPageRoute route =
+        MaterialPageRoute(builder: (BuildContext context) {
+      return Last();
+    });
+
+    return Navigator.of(context).push(route);
   }
 }

@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
           title: Text("Login"),
           backgroundColor: Colors.blue.shade400,
         ),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.cyan.shade100,
         body: Container(
           alignment: Alignment.center,
           child: Form(
@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
 
                   //lvl 2 - accept characters that end with the given email e.g @uoguelph
                   validator: (String value) {
-                    if (value.isEmpty || !value.endsWith("@nasa.com ")) {
+                    if (value.isEmpty || !value.endsWith("@nasa.com")) {
                       return "Invalid Field";
                     } else {
                       //DO X Y Z
