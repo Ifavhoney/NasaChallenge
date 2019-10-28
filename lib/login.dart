@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mybackpack/backpack.dart';
+import 'package:mybackpack/Last.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
 
                   //lvl 2 - accept characters that end with the given email e.g @uoguelph
                   validator: (String value) {
-                    if (value.isEmpty || !value.endsWith("@nasa.com")) {
+                    if (value.isEmpty) {
                       return "Invalid Field";
                     } else {
                       //DO X Y Z
@@ -82,9 +82,7 @@ class _LoginState extends State<Login> {
                 RaisedButton(
                   child: Text("Submit"),
                   onPressed: () {
-                    if (_formKey.currentState.validate() == true) {
-                      redirect();
-                    }
+                    redirect();
                   },
                 )
               ],
@@ -98,7 +96,7 @@ class _LoginState extends State<Login> {
   Future redirect() {
     MaterialPageRoute route =
         MaterialPageRoute(builder: (BuildContext context) {
-      return BackPack();
+      return Last();
     });
 
     return Navigator.of(context).push(route);
